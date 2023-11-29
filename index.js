@@ -20,12 +20,11 @@ const searchQuery = "";
 export async function fetchCharacters() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
   const data = await response.json();
+  cardContainer.innerHTML = "";
   return data.results;
 }
 
 const data = await fetchCharacters();
-
-console.log(data[1].name);
 
 data.forEach((person) => {
   CharacterCard(person.image, person.name, person.status, person.occurence);
