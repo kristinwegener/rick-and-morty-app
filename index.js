@@ -42,11 +42,17 @@ async function renderCards() {
 renderCards();
 
 nextButton.addEventListener("click", () => {
+  if ( page == maxPage )
+    return;
   page ++;
   renderCards();
-
+  pagination.textContent = `${page}/${maxPage}`;
 })
 
 prevButton.addEventListener("click", () => {
-  
+  if ( page == 1 )
+    return;
+  page --;
+  renderCards();
+  pagination.textContent = `${page}/${maxPage}`;
 })
