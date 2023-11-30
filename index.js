@@ -27,14 +27,14 @@ export async function fetchCharacters() {
 const data = await fetchCharacters();
 
 data.forEach((person) => {
-  CharacterCard(person.image, person.name, person.status, person.occurence);
+  CharacterCard(person.image, person.name, person.status, person.species, person.episode.length);
 });
 
 async function renderCards() {
   await fetchCharacters();
   const newPersons = await fetchCharacters();
   newPersons.forEach((person) => {
-    CharacterCard(person.image, person.name, person.status, person.occurence);
+    CharacterCard(person.image, person.name, person.status, person.species, person.episode.length);
   });
   console.log(newPersons);
 }
